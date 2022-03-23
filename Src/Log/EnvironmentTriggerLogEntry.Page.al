@@ -19,19 +19,15 @@ page 62123 "Environment Trigger Log Entry"
                     ToolTip = 'Specifies the value of the Entry No. field.';
                     ApplicationArea = All;
                 }
+                field(UserId; Rec.UserId)
+                {
+                    ToolTip = 'Specifies the value of the UserId field.';
+                    ApplicationArea = All;
+                }
                 field(Message; Rec.Message)
                 {
                     ToolTip = 'Specifies the value of the Message field.';
                     ApplicationArea = All;
-                }
-                field(CallStack; Rec.CallStack)
-                {
-                    ToolTip = 'Specifies the Call Stack';
-                    ApplicationArea = All;
-                    trigger OnDrillDown()
-                    begin
-                        Message(Rec.CallStack);
-                    end;
                 }
                 field(SystemCreatedAt; Rec.SystemCreatedAt)
                 {
@@ -57,6 +53,7 @@ page 62123 "Environment Trigger Log Entry"
                 PromotedIsBig = true;
                 Image = Create;
                 ApplicationArea = All;
+                ToolTip = 'Executes the CreateEntry action.';
 
                 trigger OnAction()
                 begin

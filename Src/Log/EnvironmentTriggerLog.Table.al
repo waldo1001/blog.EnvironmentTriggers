@@ -19,6 +19,10 @@ table 62123 "Environment Trigger Log"
         {
             DataClassification = CustomerContent;
         }
+        field(4; UserId; Text[100])
+        {
+            DataClassification = CustomerContent;
+        }
     }
 
     keys
@@ -31,15 +35,11 @@ table 62123 "Environment Trigger Log"
 
     procedure CreateEntry(pMessage: Text)
     begin
-        // commit;
-        // if Codeunit.Run(Codeunit::RaiseError) then;
-
         Init;
         Rec."Entry No." := 0;
         Rec.Message := pMessage;
+        rec.UserId := UserId;
         Rec.Insert();
-
-        // commit;
     end;
 
 }
